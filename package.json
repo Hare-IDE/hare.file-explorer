@@ -1,0 +1,147 @@
+{
+  "name": "hare-code",
+  "type": "module",
+  "displayName": "Custom view Samples",
+  "description": "Samples for VSCode's view API",
+  "version": "0.0.1",
+  "publisher": "vscode-samples",
+  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Microsoft/vscode-extension-samples"
+  },
+  "main": "dist/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "primary_bar": [
+        {
+          "id": "explorer",
+          "title": "Explorer",
+          "icon": "media/dep.svg"
+        }
+      ]
+    },
+    "views": {
+      "explorer": [
+        {
+          "id": "fileExplorer",
+          "title": "PROJECT NAME"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "fileExplorer.collapseFolder",
+        "title": "Collapse folders",
+        "icon": {
+          "light": "resources/light/collapse.svg",
+          "dark": "resources/dark/collapse.svg"
+        }
+      },
+      {
+        "command": "fileExplorer.refresh",
+        "title": "Refresh Explorer",
+        "icon": {
+          "light": "resources/light/refresh.svg",
+          "dark": "resources/dark/refresh.svg"
+        }
+      },
+      {
+        "command": "fileExplorer.renameFile",
+        "title": "Rename"
+      },
+      {
+        "command": "fileExplorer.renameFolder",
+        "title": "Rename"
+      },
+      {
+        "command": "fileExplorer.addFile",
+        "title": "New File",
+        "icon": {
+          "light": "resources/light/addFile.svg",
+          "dark": "resources/dark/addFile.svg"
+        }
+      },
+      {
+        "command": "fileExplorer.addFolder",
+        "title": "New Folder",
+        "icon": {
+          "light": "resources/light/addFolder.svg",
+          "dark": "resources/dark/addFolder.svg"
+        }
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "fileExplorer.addFile",
+          "when": "view == fileExplorer",
+          "group": "visible:1"
+        },
+        {
+          "command": "fileExplorer.addFolder",
+          "when": "view == fileExplorer",
+          "group": "visible:2"
+        },
+        {
+          "command": "fileExplorer.refresh",
+          "when": "view == fileExplorer",
+          "group": "visible:3"
+        },
+        {
+          "command": "fileExplorer.collapseFolder",
+          "when": "view == fileExplorer",
+          "group": "visible:4"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "fileExplorer.renameFile",
+          "when": "view == fileExplorer && viewItem == file"
+        },
+        {
+          "command": "fileExplorer.renameFolder",
+          "when": "view == fileExplorer && viewItem == folder"
+        }
+      ]
+    },
+    "configuration": [
+      {
+        "title": "Explorer",
+        "properties": {
+          "fileExplorer.autorefresh": {
+            "type": "boolean",
+            "description": "Auto refresh the Explorer view when the contents of the project directory change.",
+            "default": true
+          }
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "build": "rimraf build/compiled/* && tsc && rollup --config"
+  },
+  "files": [
+    "extension.d.ts",
+    "extension.js",
+    "extension.js.map"
+  ],
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/bun": "latest",
+    "rollup": "^4.21.2",
+    "rollup-plugin-dts": "^6.1.1",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.5.4"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^1.6.0",
+    "@types/react": "^18.3.5",
+    "react": "^18.3.1",
+    "rollup-plugin-uglify": "^6.0.4"
+  }
+}
