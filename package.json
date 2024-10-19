@@ -142,6 +142,7 @@
     "@tauri-apps/api": "^1.6.0",
     "@types/react": "^18.3.5",
     "react": "^18.3.1",
-    "rollup-plugin-uglify": "^6.0.4"
+    "rollup-plugin-uglify": "^6.0.4",
+    "@hare-ide/hare": "link:@hare-ide/hare"
   }
 }
