@@ -1,9 +1,6 @@
-import { activate2 } from "./a";
+import { Explorer } from "./fileExplorer";
 export function activate(context) {
-    activate2();
-    context.readFile("/home/javier/Code/Tests/package.json").then((new_extensions) => {
-        console.log("AAAAAAAAAAAAAAAAAAAAA");
-    });
+    context.window.registerTreeViewProvider("fileExplorer", new Explorer(context));
 }
 // this method is called when your extension is deactivated
 export function deactivate() { }
