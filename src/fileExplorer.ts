@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React,{ useState } from "react";
 import {TreeItem, TreeItemState, type TreeViewProvider} from "@hare-ide/hare"
 
 interface entry {
@@ -19,9 +19,9 @@ export class Explorer implements TreeViewProvider<entry> {
   context: any;
 
 	constructor(context:any) {
-		const [selected, setSelected] = useState<string[]>([]);
-		this.selectedCallback = setSelected
-		this.selected = selected
+		// const [selected, setSelected] = useState<string[]>([""]); //FIX: pass this from context
+		this.selectedCallback = () => {}
+		this.selected = ["1"]
     this.context = context
 	}
 

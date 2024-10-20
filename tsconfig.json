@@ -5,11 +5,11 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleDetection": "force",
-    "jsx": "react-jsx",
+    "jsx": "react",
     "allowJs": true,
 
     // Bundler mode
-    "moduleResolution": "bundler",
+    "moduleResolution": "Bundler",
     // "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "noEmit": false,
@@ -25,8 +25,10 @@
     "noPropertyAccessFromIndexSignature": false,
 
     "outDir": "build/compiled",
+    "baseUrl": ".",
     "noImplicitAny": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
   },
   "include": ["src"]
 }
