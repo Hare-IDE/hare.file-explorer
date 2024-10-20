@@ -30,5 +30,9 @@
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
   },
-  "include": ["src"]
+  "include": ["src"],
+  "tsc-alias": {
+    "resolveFullPaths": true,
+    "verbose": false
+  }
 }

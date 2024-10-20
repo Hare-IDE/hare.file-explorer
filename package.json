@@ -120,10 +120,8 @@
     ]
   },
   "scripts": {
-    "build": "rimraf dist && tsc && node_modules/.bin/webpack --config webpack.config.js --mode=production",
-    "dev": "node_modules/.bin/webpack --config webpack.config.js --mode=development",
-    "part": "rimraf dist && tsc ",
-    "prebuild:dev": "rimraf dist"
+    "build": "rimraf dist && tsc && tsc-alias && node_modules/.bin/webpack --config webpack.config.js --mode=production",
+    "dev": "rimraf dist && tsc && tsc-alias && node_modules/.bin/webpack --config webpack.config.js --mode=development"
   },
   "files": [
     "extension.d.ts",
@@ -141,6 +139,7 @@
     "@types/bun": "latest",
     "ts-loader": "^9.5.1",
     "typescript": "^5.5.4",
+    "tsc-alias": "^1.8.10",
     "rimraf": "^3.0.2",
     "webpack": "^5.64.3",
     "webpack-cli": "^4.9.1",
