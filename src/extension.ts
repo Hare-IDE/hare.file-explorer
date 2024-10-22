@@ -1,6 +1,7 @@
+import type { ExtensionContext } from "@hare-ide/hare";
 import { Explorer } from "./fileExplorer";
 
-export function activate(context:any) {
+export function activate(context: ExtensionContext) {
   context.window.registerTreeViewProvider("fileExplorer", new Explorer(context));
 }
 

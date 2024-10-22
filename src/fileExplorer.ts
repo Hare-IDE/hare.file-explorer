@@ -1,5 +1,5 @@
 import React,{ useState } from "react";
-import {TreeItem, TreeItemState, type TreeViewProvider} from "@hare-ide/hare"
+import {TreeItem, TreeItemState, type ExtensionContext, type TreeViewProvider} from "@hare-ide/hare"
 
 interface entry {
 	contextValue: string,
@@ -16,9 +16,9 @@ interface entryRust {
 export class Explorer implements TreeViewProvider<entry> {
 	selectedCallback: Function;
 	selected: string[];
-  context: any;
+  context: ExtensionContext;
 
-	constructor(context:any) {
+	constructor(context: ExtensionContext) {
 		// const [selected, setSelected] = useState<string[]>([""]); //FIX: pass this from context
 		this.selectedCallback = () => {}
 		this.selected = ["1"]
@@ -57,9 +57,9 @@ export class Explorer implements TreeViewProvider<entry> {
 		treeItem.tooltip = element.url;
 		// treeItem.description = element.contextValue;
 		if (treeItem.contextValue === "file") {
-			treeItem.iconPath = "/home/javier/.hare/extensions/hare.explorer/media/file.svg";
+			treeItem.iconPath = await this.context.getAbsolutePath("media/file.svg");
 		} else {
-			treeItem.iconPath = "/home/javier/.hare/extensions/hare.explorer/media/folder.svg";
+			treeItem.iconPath = await this.context.getAbsolutePath("media/folder.svg");
 		}
 
 		if (treeItem.contextValue === "file") {

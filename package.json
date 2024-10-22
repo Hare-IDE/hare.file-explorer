@@ -108,6 +108,7 @@
     },
     "configuration": [
       {
+        "id": "explorer.configuration",
         "title": "Explorer",
         "properties": {
           "fileExplorer.autorefresh": {
