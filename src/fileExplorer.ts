@@ -14,14 +14,9 @@ interface entryRust {
 }
 
 export class Explorer implements TreeViewProvider<entry> {
-	selectedCallback: Function;
-	selected: string[];
   context: ExtensionContext;
 
 	constructor(context: ExtensionContext) {
-		// const [selected, setSelected] = useState<string[]>([""]); //FIX: pass this from context
-		this.selectedCallback = () => {}
-		this.selected = ["1"]
     this.context = context
 	}
 
