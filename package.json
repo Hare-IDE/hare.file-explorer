@@ -12,6 +12,7 @@
     "url": "https://github.com/Microsoft/vscode-extension-samples"
   },
   "main": "dist/extension.js",
+  "backend": "backend/hare-explorer/target/release/libhare_explorer.so",
   "contributes": {
     "viewsContainers": {
       "primary_bar": [
@@ -121,7 +122,7 @@
     ]
   },
   "scripts": {
-    "build": "rimraf dist && tsc && tsc-alias && node_modules/.bin/webpack --config webpack.config.js --mode=production",
+    "build": "rimraf dist && tsc && tsc-alias && cd backend/hare-explorer && cargo build --release && cd ../.. && node_modules/.bin/webpack --config webpack.config.js --mode=production",
     "dev": "rimraf dist && tsc && tsc-alias && node_modules/.bin/webpack --config webpack.config.js --mode=development"
   },
   "files": [
