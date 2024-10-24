@@ -58,13 +58,7 @@ export class Explorer implements TreeViewProvider<entry> {
 		}
 
 		if (treeItem.contextValue === "file") {
-			// treeItem.command = () => {
-			// 	readFile(element.url).then((content:string) => {
-			// 		console.log(content)
-			// 	})
-			// }
-		} else {
-			// treeItem.command = () => {}
+			treeItem.command = "hare.open";
 		}
 
 		return treeItem;
