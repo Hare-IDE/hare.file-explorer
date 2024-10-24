@@ -58,7 +58,7 @@ export class Explorer implements TreeViewProvider<entry> {
 		}
 
 		if (treeItem.contextValue === "file") {
-			treeItem.command = "hare.open";
+			treeItem.command = "fileExplorer.renameFile";
 		}
 
 		return treeItem;
