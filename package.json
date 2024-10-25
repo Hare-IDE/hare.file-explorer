@@ -73,6 +73,26 @@
         }
       }
     ],
+    "backendCommands": [
+      {
+        "command": "fileExplorer.collapseFolder"
+      },
+      {
+        "command": "fileExplorer.refresh"
+      },
+      {
+        "command": "fileExplorer.renameFile"
+      },
+      {
+        "command": "fileExplorer.renameFolder"
+      },
+      {
+        "command": "fileExplorer.addFile"
+      },
+      {
+        "command": "fileExplorer.addFolder"
+      }
+    ],
     "menus": {
       "view/title": [
         {

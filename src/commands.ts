@@ -8,4 +8,6 @@ export function renameFile (...args:any) {
   if (selected.length === 1) {
     console.log("Rename File:",selected[0]);
   }
+
+  console.log(context.commands.executeBackendCommand("fileExplorer.renameFolder", JSON.stringify({data :"hola"})));
 }
