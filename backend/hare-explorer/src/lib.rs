@@ -1,10 +1,29 @@
 #[no_mangle]
-pub fn activate(register_command: fn(id:String, callback: fn(data:&String)-> Result<String, String>)) {
+pub fn activate(register_command: fn(id:String, callback: fn(data:&String)-> Result<&str, &str>)) {
     register_command("fileExplorer.renameFolder".to_string(), hello);
+    register_command("fileExplorer.renameFile".to_string(), hello2);
 }
 
-#[no_mangle]
-fn hello(data:&String) -> Result<String, String> {
-    println!("{}",data.clone());
-    Ok("Hello".into())
+fn hello(data:&String) -> Result<&str, &str> {
+    let mut my_data = data.clone();
+
+    if my_data.chars().count() == 0 {
+        println!("Setup call");
+        return Err(&"Setup")
+    }
+
+    println!("{}",my_data);
+    Ok(&"Helaaalo")
+}
+
+fn hello2(data:&String) -> Result<&str, &str> {
+    let mut my_data = data.clone();
+
+    if my_data.chars().count() == 0 {
+        println!("Setup call");
+        return Err(&"Setup")
+    }
+
+    println!("My data: {}",data.clone());
+    Ok(&"Daatttata")
 }

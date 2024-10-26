@@ -9,7 +9,7 @@ export function renameFile (...args:any) {
     console.log("Rename File:",selected[0]);
   }
 
-  context.commands.executeBackendCommand("fileExplorer.renameFolder", JSON.stringify({data :"hola"})).then((content:any) => {
+  context.commands.executeBackendCommand("fileExplorer.renameFolder", JSON.stringify({data :"hola"})).then((content:string) => {
     console.log(content);
   })
 }
